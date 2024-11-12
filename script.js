@@ -14,6 +14,7 @@ for (let i = 1; i < 101; i++) {
 let excel = document.getElementsByClassName("excel");
 // excel[0].setAttribute("posX", "test");
 // excel[0].setAttribute("posY", "test");
+
 let x = 1,
   y = 10;
 
@@ -37,13 +38,13 @@ function generateSnake() {
 let coordinates = generateSnake();
 let snakeBody = [
   document.querySelector(
-    '[posX = "' + coordinates[0] + '"][posY = "' + coordinates[0] + '"]'
+    '[posX = "' + coordinates[0] + '"][posY = "' + coordinates[1] + '"]'
   ),
   document.querySelector(
-    '[posX = "' + (coordinates[0] - 1) + '"][posY = "' + coordinates[0] + '"]'
+    '[posX = "' + (coordinates[0] - 1) + '"][posY = "' + coordinates[1] + '"]'
   ),
   document.querySelector(
-    '[posX = "' + (coordinates[0] - 2) + '"][posY = "' + coordinates[0] + '"]'
+    '[posX = "' + (coordinates[0] - 2) + '"][posY = "' + coordinates[1] + '"]'
   ),
 ];
 
@@ -54,6 +55,7 @@ for (let i = 0; i < snakeBody.length; i++) {
 snakeBody[0].classList.add("head");
 
 let mouse;
+let counter = 0;
 // Створення миші
 function createMouse() {
   function generateMouse() {
@@ -63,22 +65,25 @@ function createMouse() {
   }
 
   let mouseCoordinates = generateMouse();
-  console.log(mouseCoordinates);
   mouse = document.querySelector(
     '[posX = "' +
       mouseCoordinates[0] +
       '"][posY = "' +
-      mouseCoordinates[0] +
+      mouseCoordinates[1] +
       '"]'
   );
 
   while (mouse.classList.contains("snakeBody")) {
+    console.log("contain");
+    console.log(counter);
+    counter++;
+
     let mouseCoordinates = generateMouse();
     mouse = document.querySelector(
       '[posX = "' +
         mouseCoordinates[0] +
         '"][posY = "' +
-        mouseCoordinates[0] +
+        mouseCoordinates[1] +
         '"]'
     );
   }

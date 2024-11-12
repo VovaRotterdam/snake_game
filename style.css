@@ -5,6 +5,7 @@
 
 body {
   margin: 100px;
+  overflow: hidden;
 }
 .field {
   width: 500px;
